@@ -13,15 +13,12 @@ public class MusicPlaylist {
         //Stack<String> stack = new Stack<>();
         Stack<String> history = new Stack<>();
         
-
         System.out.println("Welcome to the CSE 122 Music Playlist!");
-        
 
         String choice = "";
         while (!choice.equalsIgnoreCase("Q")) {
             
             showOptions();
-        
             System.out.print("Enter your choice: ");
             choice = console.nextLine();
 
@@ -30,56 +27,36 @@ public class MusicPlaylist {
                 addSong(console, queue);
                 System.out.println();
                 System.out.println();
-                
-             
                     
             } else if (choice.equalsIgnoreCase("P")) {
                 // WHEN PLAY THE SONG
                 playSong(queue, history);
                 System.out.println();
                 System.out.println();
-                
-                //totalPort = sellStock(console, stocks, price, portfolio, totalPort);
 
             } else if (choice.equalsIgnoreCase("Pr")) {
                 // WHEN THEY PRINT THEIR HISTORY
-
                 printHistory(history);
                 System.out.println();
                 System.out.println();
                 
-                
-
             } else if (choice.equalsIgnoreCase("C")) {
                 // WHEN THEY CLEAR THEIR HISTORY
                 clearHistory(history);
                 System.out.println();
                 System.out.println();
                 
-
-                //showOptions();
-
             } else if (choice.equalsIgnoreCase("D")) {
                 //WHEN THEY DELETE THEIR HISTORY
                 deleteHistory(console, history);
                 System.out.println();
                 
-
             } else {
-                
                 //System.out.println("Invalid choice: " + choice);
                 //System.out.println("Please try again");
-
             }
         }
     }
-
-
-
-
-
-
-
 
     public static void showOptions(){
         System.out.println("(A) Add song");
@@ -92,15 +69,10 @@ public class MusicPlaylist {
     }
 
     public static void addSong(Scanner console, Queue<String> queue){
-
-        
         System.out.print("Enter song name: ");
         String songName = console.nextLine();
         System.out.println("Successfully added " + songName);
         queue.add(songName);
-        //System.out.println(queue);
-        //stack.push(songName);
-        //System.out.println(stack);
     }
 
     public static void playSong(Queue<String> queue, Stack<String> history){
@@ -110,9 +82,6 @@ public class MusicPlaylist {
 
         System.out.println("Playing song: " + queue.peek());
         history.add(queue.remove());
-        //System.out.println("History: " + history.size());
-        
-        //queue.remove();
         
 
     }
@@ -124,24 +93,18 @@ public class MusicPlaylist {
 
         Stack<String> aux = new Stack<>();
 
-
         while (!history.isEmpty()){
             System.out.println("    " + history.peek());
             aux.push(history.pop());
-            //System.out.println("aux : " + aux);
         }
+
         while (!aux.isEmpty()){
             history.push(aux.pop());
-            //System.out.println(history);
         }
-        //aux.clear();
-        //System.out.println("History stack: " + history);
-        
     }
 
     public static void clearHistory(Stack<String> history){
         history.clear();
-
     }
 
 
@@ -153,13 +116,11 @@ public class MusicPlaylist {
         int absVal = Math.abs(response);
         Stack<String> aux = new Stack<>();
 
-
         if (Math.abs(response) > history.size()){
             throw new IllegalArgumentException("This is greater than the history size.");
         }
 
         if (response < 0){
-            //System.out.println("Negative");
             //when they respond with negative number
             while (!history.isEmpty()){
                 aux.push(history.pop());
@@ -172,15 +133,10 @@ public class MusicPlaylist {
             }
 
         } else if (response > 0){
-            //System.out.println("Positive");
             //when they respond with positive number
             for (int i = 0; i < absVal; i++){
                 history.pop();
             }
-
-
         }
-
     }
-
 }
