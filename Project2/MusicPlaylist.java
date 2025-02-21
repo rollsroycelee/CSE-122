@@ -6,7 +6,7 @@ package Project2;
 // TA: Maggie
 // This class gives the user options to add, play, print history, and delete history of 
 // their songs that they choose to use depending on what the user chooses to do
-//
+
 
 import java.util.*;
 
